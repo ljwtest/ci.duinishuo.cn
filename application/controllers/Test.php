@@ -6,6 +6,6 @@ class Test extends CI_Controller {
 	public function index()
 	{
 		echo "hahahahaha";
-		//$this->load->view('welcome_message');
+		$this->load->view("test/index");
 	}
 }
