@@ -1,5 +1,19 @@
-RewriteEngine on
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond $1 !^(index\.php|images|robots\.txt)
-RewriteRule ^(.*)$ /index.php/$1 [L]
+# 判断当前Apache服务器是否开启了rewrite模块
+<IfModule mod_rewrite.c>
+# 安全的一个选项，保证不出现403错误
+  Options +FollowSymlinks
+
+  RewriteEngine On
+# 重写的条件，当前规则匹配时，再判断条件是否满足，满足才会进行重写操作。
+  # 请求的不是一个存在的目录
+   RewriteCond %{REQUEST_FILENAME} !-d
+  # 请求的不是一个存在的文件(两个条件是and关系)
+   RewriteCond %{REQUEST_FILENAME} !-f
+  #反向引用下面的$1（代表请求url）,不以模式单元中名称开头 
+   RewriteCond $1 !^(index\.php|images|robots\.txt)
+  # 规则采用了正则，与反向引用： 匹配所有的请求地址 Back/Index/index.html， 重 写index.php/Back/Index/index.html
+  RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
+  #QSA:	追加查询字符串
+  #PT:	连锁规则
+  #L:	最后规则
+</IfModule>
