@@ -6,7 +6,7 @@ class Test extends CI_Controller {
 	public function index()
 	{
 		echo "this is test Controller";
-		$this->load->database("test2");
+		$this->load->database();
 		//$query = $this->db->query('SELECT * from table2')->result();
 		//$query=$this->db->select("id,add_time")->get("table1")->result();
 		$arr=array("user"=>"ljw3","age"=>"26");
