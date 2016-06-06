@@ -79,7 +79,7 @@ $db['default'] = array(
 	'username' => config_item("mysql_user"),
 	'password' => config_item("mysql_password"),
 	'database' => config_item("mysql_dbname"),
-	'dbdriver' => 'mysql',
+	'dbdriver' => 'pdo',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
