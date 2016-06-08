@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class AdminTest extends CI_Controller {
+class Admin_test extends CI_Controller {
 
 	public function index()
 	{
