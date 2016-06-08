@@ -3,14 +3,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin_test extends CI_Controller {
 
-	public function index()
+	public function index($a="",$bb="")
 	{
-		echo "this is Admin test Controller";
+		echo "this is Admin Module test Controller";
 		$this->load->database();
-		//$query = $this->db->query('SELECT * from table2')->result();
-		//$query=$this->db->select("id,add_time")->get("table1")->result();
-		$arr=array("user"=>"ljw3","age"=>"26");
-		//echo config_item("mysql_host");
+		$res=$this->input->post();
+		var_dump($res);
+		//$model=$this->load->model("Test");
+		//var_dump($model);
+
 		$query=$this->db->get("table1")->row_array();
 		//echo $query[0]['id'];die;
 		var_dump($query);
