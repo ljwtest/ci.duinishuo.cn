@@ -16,4 +16,8 @@ class Test extends CI_Controller {
 		var_dump($query);
 		$this->load->view("test/index");
 	}
+
+	public function test_cli($name = "world!"){
+		echo "hello! '$name'";
+	}
 }
